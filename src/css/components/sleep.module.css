@@ -1,0 +1,22 @@
+.card{
+    position: fixed;
+    bottom: 15px;
+    left: 10px;
+
+
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    background: #8686861a;
+    border-radius: 12px;
+
+    transition: 0.3s ease-in-out;
+}
+
+.card:hover{
+    background: #8686862a;
+    transform: scale(1.02);
+}

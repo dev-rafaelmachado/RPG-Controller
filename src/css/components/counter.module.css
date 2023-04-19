@@ -1,0 +1,171 @@
+@import url(https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 244px;
+    height: 244px;
+    border-radius: 12px;
+}
+
+.card h1{
+    width: 100%;
+    height: 35%;
+
+    display: grid;
+    place-items: center;
+
+    color: white;
+    font-family: "Rubik";
+
+    font-size: 4rem;
+
+    user-select: none;
+}
+
+.card h2{
+    width: 100%;
+    height: 20%;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 1rem;
+
+    color: white;
+    font-family: "Rubik";
+
+    user-select: none;
+}
+
+.card div{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 45%;
+}
+
+.card div span{
+    display: grid;
+    place-items: center;
+
+    width: 50%;
+    height: 100%;
+    transition: 0.1s;
+}
+
+.card span:first-child{
+    border-radius: 0px 0px 0px 12px;
+}
+
+.card span:last-child{
+    border-radius: 0px 0px 10px 0px;
+}
+
+.card svg{
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.card span:active{
+    background-color: #ffffff10;
+}
+
+.reload{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    transition: ease-in-out 0.2s;
+}
+
+.reload:hover{
+    transform: rotate(-30deg);
+}
+
+.reload:active{
+    transform: rotate(90deg);
+}
+
+.trash{
+    position: absolute;
+    top: 38px;
+    right: 5px;
+    transition: ease-in-out 0.2s;
+}
+
+.trash:hover{
+    fill: red;
+}
+
+.trash:active{
+    transform: scale(0.5);
+}
+
+
+/* ! Modal  */
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #242424;
+    padding: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    user-select:none;
+    border: none;
+    outline: none;
+}
+  
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    outline: none;
+    user-select: none;
+    user-select:none;
+}
+
+.input{
+    width: 12rem;
+    height: 4rem;
+    border: none;
+    outline: none;
+    user-select: none;
+
+    font-size: 2rem;
+    color: #fdfdfd;
+    background-color: #242424;
+    padding-left: 20px;
+    caret-color: #474747
+}
+
+.input::placeholder{
+    color: #696969;
+    font-family: "Open Sans";
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    appearance: textfield;
+}

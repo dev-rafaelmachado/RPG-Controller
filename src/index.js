@@ -4,12 +4,12 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { CountersProvider } from './contexts/CountersContext';
 
 import App from './App';
 import Cards  from "./pages/Cards"
 import Attacks from "./pages/Attacks"
 import Info from "./pages/Info"
-
 
 const router = createBrowserRouter([
   {
@@ -18,7 +18,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Cards />
+        element: (
+          <CountersProvider>
+            <Cards />
+          </CountersProvider>
+        )
       },
       {
         path: "/attacks",

@@ -1,9 +1,19 @@
-import { useEffect, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { db } from "../services/database";
 
-const useCounters = () => {
+const CountersContext = createContext();
+
+const CountersProvider = ({ children }) => {
   const [counters, setCounters] = useState([]);
-  console.log("Hook", counters);
+
+  useEffect(() => {
+    const loadData = async () => {
+      db.cards.toArray().then((cards) => {
+        setCounters(cards);
+      });
+    };
+    loadData();
+  }, []);
 
   const addCounter = async (newCounter) => {
     try {
@@ -31,21 +41,13 @@ const useCounters = () => {
     }
   };
 
-  useEffect(() => {
-    const loadData = async () => {
-      db.cards.toArray().then((cards) => {
-        setCounters(cards);
-      });
-    };
-    loadData();
-  }, []);
-
-  return {
-    counters,
-    addCounter,
-    removeCounter,
-    updateCounter,
-  };
+  return (
+    <CountersContext.Provider
+      value={{ counters, addCounter, removeCounter, updateCounter }}
+    >
+      {children}
+    </CountersContext.Provider>
+  );
 };
 
-export default useCounters;
+export { CountersContext, CountersProvider };

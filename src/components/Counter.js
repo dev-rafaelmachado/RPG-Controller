@@ -9,7 +9,8 @@ import {
 import CounterModal from "./CounterModal";
 
 import { useState } from "react";
-import useCounters from "../Hooks/useCounters";
+import { useContext } from "react";
+import { CountersContext } from "../contexts/CountersContext";
 
 const Counter = ({ id, title, initial, value, color }) => {
   const [number, setNumber] = useState(value);
@@ -17,7 +18,7 @@ const Counter = ({ id, title, initial, value, color }) => {
   const [longPressTimeout, setLongPressTimeout] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { updateCounter, removeCounter } = useCounters();
+  const { removeCounter, updateCounter } = useContext(CountersContext);
 
   const handleMouseDown = (oper) => {
     setLongPressTimeout(

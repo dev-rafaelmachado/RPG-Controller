@@ -1,8 +1,9 @@
 import Style from "../css/components/addcounter.module.css";
 
 import ReactModal from "react-modal";
-import React, { useState } from "react";
-import useCounters from "../Hooks/useCounters";
+import { useState } from "react";
+import { useContext } from "react";
+import { CountersContext } from "../contexts/CountersContext";
 
 const colorOptions = [
   { label: "Verde", value: "#075E00" },
@@ -17,7 +18,7 @@ const AddCounterModal = ({ isOpen, onClose }) => {
   const [color, setColor] = useState(colorOptions[0].value);
   const [isRestorable, setIsRestorable] = useState(false);
 
-  const { addCounter } = useCounters();
+  const { addCounter } = useContext(CountersContext)
 
   const handleSubmit = (event) => {
     event.preventDefault();
